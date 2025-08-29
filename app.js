@@ -1,31 +1,43 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom/client";
 
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  [
-    React.createElement(
-      "div",
-      { id: "child1" },
-      [
-        React.createElement("h1", {}, "I am h1 Tag"),
-        React.createElement("h2", {}, "This is a h2 tag")
-      ]
-    ),
-    React.createElement(
-      "div",
-      { id: "child2" },
-      [
-        React.createElement("h1", {}, "This is h1 tag of 2nd child"),
-        React.createElement("h2", {}, "This is the h2 tag of child 2")
-      ]
-    )
-  ]
-);
 
-const root = createRoot(document.getElementById("root"));
-root.render(parent);
+// JSX - it is not html in JS, it is HTML like but not HTML.
+const jsxHeading =(
+  <h1 className="head" tabIndex="1">
+  Namaste React usingJSX 🚀
+  </h1>
+  );
+console.log(jsxHeading);
 
+const JsxHeading = ()=> (
+  <h1 className="head" tabIndex="1">
+  Namaste React  🚀
+  </h1>
+  );
+
+// React Components
+
+   // Class Based Components- old way
+   // Functional component- New Way => just a normal JS function
+
+const HeadingComponent= ()=>{
+  return <div className="container">
+     <JsxHeading />
+     {jsxHeading}
+     <h1 className="heading">Namaste React Functional Comp. 🥳</h1>
+  </div>;
+};
+//or
+const HeadingComponent2= ()=> <h1 className="heading">Namaste React Functional Comp. 2</h1>;
+
+
+
+
+
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent />);
 
 
