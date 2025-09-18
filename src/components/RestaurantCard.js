@@ -1,9 +1,8 @@
-
+import { RESTAURANT_CARD_IMG_CDN_URL } from "../utils/constants";
 
 const RestaurantCard = ({resData})=>{
-  console.log(resData);
   const {
-    resImage,
+    cloudinaryImageId,
     name,
     cuisines,
     avgRating,sla
@@ -11,7 +10,7 @@ const RestaurantCard = ({resData})=>{
   return <div className="res-card">
 <img
   className="res-logo"
-  src={resImage}
+  src={RESTAURANT_CARD_IMG_CDN_URL+cloudinaryImageId}
   alt="res-logo"
 />
     <h3>{name}</h3>
