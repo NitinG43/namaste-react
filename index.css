@@ -198,3 +198,11 @@
   background-color: #15803d;
 }
 
+
+
+/* UserCard in About Page */
+.user-card{
+  padding: 10px;
+  border: 1px solid black;
+}
+
