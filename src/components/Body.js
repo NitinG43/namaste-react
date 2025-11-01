@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../utils/constants";
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = ()=>{
 
   //State Variable - super powerful variable
@@ -20,10 +21,19 @@ const Body = ()=>{
     const json = await data.json();
     console.log(json);
     // optional chaining
-    const reses =json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants||[];
+    const reses =json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants||[];
     setListOfRestaurants(reses);
     setFilteredRestaurants(reses);
   };
+
+
+  // Check if internet is on or not
+  const OnlineStatus = useOnlineStatus();
+  if(OnlineStatus=== false)return <h1>you're offline 😞. Please turn on the internet🙂</h1>
+
+
+
+
   // Condifional Rendering
   return listOfRestaurants.length===0 ? <Shimmer /> : (
     <div className="body">
@@ -48,7 +58,7 @@ const Body = ()=>{
          className="filter-btn" 
          onClick={()=>{
           const filteredList = listOfRestaurants.filter(res => res.info.avgRating>4.5);
-          setListOfRestaurants(filteredList);
+          setFilteredRestaurants(filteredList);
           }}
         >
           Top Rated restaurants
