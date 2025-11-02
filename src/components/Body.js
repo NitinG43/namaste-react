@@ -4,27 +4,16 @@ import { API_URL } from "../utils/constants";
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantList from "../utils/useRestaurantList";
 const Body = ()=>{
 
   //State Variable - super powerful variable
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const[filteredRestaurants, setFilteredRestaurants]= useState([]);
   const [searchText, setSearchText] = useState("");
+  const listOfRestaurants = useRestaurantList();
   useEffect(()=>{
-    fetchData();
-  },[]);
-
-  const fetchData= async ()=>{
-    const data = await fetch(
-      API_URL
-    );
-    const json = await data.json();
-    console.log(json);
-    // optional chaining
-    const reses =json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants||[];
-    setListOfRestaurants(reses);
-    setFilteredRestaurants(reses);
-  };
+    setFilteredRestaurants(listOfRestaurants);
+  },[listOfRestaurants])
 
 
   // Check if internet is on or not
