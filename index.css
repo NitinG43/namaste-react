@@ -1,3 +1,18 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+
+
+/* 
 .header{
     display: flex;
     justify-content: space-between;
@@ -86,9 +101,9 @@
 .shimmer-res-name, .shimmer-res-cuisine,
 .shimmer-star-ratings, .shimmer-time-to-deliver {
   display: block;
-  height: 16px;      /* or another value that fits your design */
+  height: 16px;      
   margin-bottom: 10px;
-  border-radius: 4px; /* optional, for a more natural look */
+  border-radius: 4px;
   background: linear-gradient(90deg, #f0f0f0 25%, #ddd 50%, #f0f0f0 75%);
   background-size: 800px 104px;
   animation: shimmer 1.5s infinite;
@@ -101,7 +116,6 @@
 
 
 
-/* Menu container */
 .menu {
   max-width: 800px;
   margin: 20px auto;
@@ -129,7 +143,6 @@
   margin: 20px 0 12px;
 }
 
-/* Dish Card */
 .dish-card {
   display: flex;
   justify-content: space-between;
@@ -166,7 +179,6 @@
   margin-top: 4px;
 }
 
-/* Right side: image + button */
 .dish-image-container {
   width: 25%;
   display: flex;
@@ -200,9 +212,9 @@
 
 
 
-/* UserCard in About Page */
+     
 .user-card{
   padding: 10px;
   border: 1px solid black;
 }
-
+ */
